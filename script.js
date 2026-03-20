@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             runBtn.innerText = 'Processing...';
 
             try {
-                const response = await fetch('https://eduinsight-tphb.onrender.com/predict', {
+                const response = await fetch('https://eduinsight-ai-deoe.onrender.com/predict', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(studentData)

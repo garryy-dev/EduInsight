@@ -22,7 +22,11 @@ init_db()
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 import joblib
+import sys
 from train_risk_model_v2 import HeuristicRiskModel
+
+# Fix for joblib unpickling error: module '__main__' has no attribute 'HeuristicRiskModel'
+sys.modules['__main__'].HeuristicRiskModel = HeuristicRiskModel
 
 # Load the trained model architecture containing our exact heuristic engine
 model = joblib.load(os.path.join(BASE_DIR, 'risk_model_v3.pkl'))
@@ -136,7 +140,7 @@ if __name__ == "__main__":
 student_data = {
     "maths_marks": 85,
     "physics_marks": 78, 
-    "python_marks": 92,
+    "python_marks": 42,
     "dsa_marks": 48,
     "dbms_marks": 80
 }
